@@ -10,18 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        // Adjust dimensions dynamically if needed
         if (screenWidth > screenHeight) {
-            tableContainer.style.width = '70%'; // Landscape adjustment
-        } else {
-            tableContainer.style.width = '90%'; // Portrait adjustment
+            tableContainer.style.width = '70%';
+        } 
+        else {
+            tableContainer.style.width = '100%';
         }
     };
 
     window.addEventListener('resize', centerDiv);
     window.addEventListener('orientationchange', centerDiv);
 
-    // Initial centering
     centerDiv();
 
     fetch(csvFilePath)
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const rows = data.split('\n');
             if (rows.length > 0) {
-                // Create table headers
+                // Populate headers
                 const headers = rows[0].split(',');
                 const headerRow = document.createElement('tr');
                 headers.forEach(header => {
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 tableBody.parentElement.querySelector('thead').appendChild(headerRow);
 
-                // Populate table rows
+                // Populate rows
                 rows.slice(1).forEach(row => {
                     if (row.trim() !== '') {
                         const columns = row.split(',');
