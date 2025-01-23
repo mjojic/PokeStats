@@ -7,12 +7,16 @@
 }
 
 header {
-    background-image: url('poke-banner.jpg');
-    background-size: cover;
-    background-position: center -100px;
-    padding: 50px 300px;
+    background-image: url('poke-banner.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-position: center; /* Centers the image horizontally and vertically */
+    height: 150px; /* Set a fixed height for the banner */
+    display: flex; /* Enables flexbox for centering content */
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; /* Vertically centers the content */
     text-align: center;
-    position: relative;
+    position: relative; /* Ensures proper positioning of child elements */
+    color: white; /* Text color for better visibility */
 }
 
 
@@ -81,7 +85,7 @@ h1 {
 
 .table-container {
     width: 90%;
-    max-height: 750px;
+    max-height: 700px;
     overflow-x: auto;
     overflow-y: auto;
     margin: 20px auto;
