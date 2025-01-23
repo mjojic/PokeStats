@@ -3,7 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('searchBar');
     const searchButton = document.getElementById('searchButton');
     const topButton = document.getElementById('topButton');
-    const csvFilePath = 'pokestats.csv'; // Path to your CSV file
+    const tableContainer = document.querySelector('.table-container');
+    const csvFilePath = 'pokestats.csv';
+
+    const centerDiv = () => {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        // Adjust dimensions dynamically if needed
+        if (screenWidth > screenHeight) {
+            tableContainer.style.width = '70%'; // Landscape adjustment
+        } else {
+            tableContainer.style.width = '90%'; // Portrait adjustment
+        }
+    };
+
+    window.addEventListener('resize', centerDiv);
+    window.addEventListener('orientationchange', centerDiv);
+
+    // Initial centering
+    centerDiv();
 
     fetch(csvFilePath)
         .then(response => response.text())
