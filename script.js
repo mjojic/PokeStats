@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (row.trim() !== '') {
                         const columns = row.split(',');
                         const tr = document.createElement('tr');
-                        tr.setAttribute('data-name', columns[1]?.trim().toLowerCase()); // Second column as Name
+                        tr.setAttribute('data-name', columns[1]?.trim().toLowerCase());
                         columns.forEach(column => {
                             const td = document.createElement('td');
                             td.textContent = column.trim();
@@ -126,10 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Trigger search on button click
     searchButton.addEventListener('click', performSearch);
 
-    // Trigger search on Enter key press in the search bar
     searchBar.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             performSearch();
